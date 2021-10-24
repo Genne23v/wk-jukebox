@@ -15,4 +15,9 @@ export class AlbumComponent implements OnInit {
     this.album = albumData;
   }
 
+  transformRunningTime(ms:number):string {
+    let min:number = Math.trunc(ms/60000);
+    let sec:number = Math.trunc(ms/1000) %60;
+    return `${min}:${sec}`;
+  }
 }

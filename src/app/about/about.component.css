@@ -1,0 +1,26 @@
+.material-icons {
+    vertical-align: middle;
+}
+
+button {
+    height: 20px;
+    padding: .1em .4em;
+    font-size: .75em;
+    line-height: 1;
+    margin-left: .5em;
+}
+
+#about {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+}
+
+
+/* img {
+    display: inline-block;
+} */
+
+#intro {
+    padding: 1em;
+}

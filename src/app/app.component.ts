@@ -1,3 +1,12 @@
+/*********************************************************************************
+*  WEB422 – Assignment 04
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this
+*  assignment has been copied manually or electronically from any other source (including web sites) or
+*  distributed to other students.
+*
+*  Name: Wonkeun No  Student ID: 145095196   Date: October 24, 2021
+*
+********************************************************************************/
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,10 +16,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'web422-a4';
-  primary:Boolean = true;
-  manager = {employeeId: 137, fullName: "Rick Sanchez", primary: false}
-  employees = [{employeeId: 128, fullName: "Morty Smith", onLeave: false},{employeeId: 129, fullName: "Summer Smith", onLeave: false},{employeeId: 130, fullName: "Jerry Smith", onLeave: true}]
-  managerClicked(){
-    console.log('clicked')
-  }
+
+
+
 }

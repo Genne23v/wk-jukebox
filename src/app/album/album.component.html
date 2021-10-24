@@ -1,22 +1,22 @@
-<h1>{{ album.name }}</h1>
+<h1>{{ album.name }}s</h1>
+<p>Full track listing for {{ album.name }}</p>
 <mat-card>
     <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
-        <div fxflex><img src="https://via.placeholder.com/300" alt="album cover" [style.margin]="'10px'" [style.max-width]="'90%'" /></div>
+        <div fxflex><img src="{{ album.images[1].url }}" alt="album cover" [style.margin]="'10px'" [style.max-width]="'90%'" /></div>
         <div fxFlex>
             <div [style.min-width]="'300px'" [style.margin]="'10px'">
-                <strong>Record Label: </strong> This is a Sample Record Label<br />
-                <strong>Release Date: </strong> 2021-02-12<br /><br />
-                <strong>Tracks:</strong> 22<br />
-                <strong>Popularity: </strong>77<br /><br />
+                <strong>Record Label: </strong>{{ album.label }}<br />
+                <strong>Release Date: </strong> {{ album.release_date }}<br /><br />
+                <strong>Tracks:</strong> {{ album.total_tracks }}<br />
+                <strong>Popularity: </strong>{{ album.popularity }}<br /><br />
 
-                <mat-chip-list routerLink="/artist" aria-label="Artist selection">
-                    <mat-chip>This is the Artist's Name</mat-chip>
-                    <mat-chip>Possible Second Artist</mat-chip>
+                <mat-chip-list aria-label="Artist selection">
+                    <mat-chip *ngFor="let artist of album.artists" routerLink="/artist">{{ artist.name }}</mat-chip>
                 </mat-chip-list>
                 <br />
 
-                <div>This is a sample Copyright &copy; 2012</div>
-                <div>Possible Second Copyright</div>
+                <div>{{ album.copyrights[0].text }}</div>
+                <div>{{ album.copyrights[1].text }}</div>
             </div>
         </div>
     </mat-card-content>
@@ -26,11 +26,11 @@
 
 <mat-list>
     <!-- Single "Responsive" Material List Item-->
-    <mat-list-item>
+    <mat-list-item *ngFor="let track of album.tracks.items">
         <mat-icon mat-list-icon>queue_music</mat-icon>
         <div mat-line>
             <mat-card>
-                <mat-card-content>1: This is the First Track of the Album - 3.34
+                <mat-card-content>{{ track.track_number }}:{{ track.name }} - {{ transformRunningTime(track.duration_ms) }}
                     <!-- NOTE 3.34 was determined by using (duration_ms / 60000).toFixed(2) -->
                 </mat-card-content>
             </mat-card>

@@ -49,7 +49,7 @@
                     <mat-icon mat-list-icon>
                         library_music
                     </mat-icon>
-                    <p mat-line> New Releases </p>
+                    <p mat-line routerLink='/newReleases'> New Releases </p>
                 </a>
 
                 <a mat-list-item>
@@ -65,7 +65,7 @@
                     <mat-icon mat-list-icon>
                         info_outline
                     </mat-icon>
-                    <p mat-line> About </p>
+                    <p mat-line routerLink="/about"> About </p>
                 </a>
             </mat-nav-list>
 
@@ -74,10 +74,7 @@
         <mat-sidenav-content class="sidenav-content">
 
             <!-- Main content -->
-            <app-about></app-about>
-            <app-not-found></app-not-found>
-            <app-new-releases></app-new-releases>
-            <app-album></app-album>
+            <router-outlet></router-outlet>
             <!-- ------------ -->
 
             <div class="bottom-spacer"></div>

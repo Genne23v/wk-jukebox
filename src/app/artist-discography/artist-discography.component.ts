@@ -8,17 +8,16 @@ import artistData from '../data/SearchResultsArtist.json';
   styleUrls: ['./artist-discography.component.css']
 })
 export class ArtistDiscographyComponent implements OnInit {
-  album:any;
+  albums:any;
   artist:any;
 
   constructor() { }
 
   ngOnInit(): void {
-    albumData.items.filter((curValue, index, self) => {
-      self.findIndex(t => t.name.toUpperCase() === curValue.name.toUpperCase() === index);
-    })
+    this.albums = albumData.items.filter((curValue, index, self) =>
+      self.findIndex(t => t.name.toUpperCase() === curValue.name.toUpperCase()) === index)
 
-    artist = artistData;
+    this.artist = artistData;
   }
 
 }
