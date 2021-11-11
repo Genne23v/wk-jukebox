@@ -1,23 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import albumData from '../data/SearchResultsAlbums.json';
-import artistData from '../data/SearchResultsArtist.json';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { MusicDataService } from '../music-data.service';
 
 @Component({
   selector: 'app-artist-discography',
   templateUrl: './artist-discography.component.html',
-  styleUrls: ['./artist-discography.component.css']
+  styleUrls: ['./artist-discography.component.css'],
 })
 export class ArtistDiscographyComponent implements OnInit {
-  albums:any;
-  artist:any;
+  albums: any;
+  artist: any;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private musicDataService: MusicDataService
+  ) {}
 
   ngOnInit(): void {
-    this.albums = albumData.items.filter((curValue, index, self) =>
-      self.findIndex(t => t.name.toUpperCase() === curValue.name.toUpperCase()) === index)
+    const id = this.route.snapshot.params.id;
+    this.musicDataService
+      .getArtistById(id)
+      .subscribe((data) => (this.artist = data));
 
-    this.artist = artistData;
+    this.musicDataService.getAlbumsByArtistId(id).subscribe((data) => {
+      this.albums = data.items.filter(
+        (curValue: { name: string }, index: number, self: any[]) =>
+          self.findIndex(
+            (t: { name: string }) =>
+              t.name.toUpperCase() === curValue.name.toUpperCase()
+          ) === index
+      );
+    });
   }
-
 }

@@ -8,12 +8,12 @@ import { NewReleasesComponent } from './new-releases/new-releases.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
+  { path: 'artist/:id', component: ArtistDiscographyComponent },
+  { path: 'album/:id', component: AlbumComponent },
   {
     path: 'newReleases',
     component: NewReleasesComponent,
   },
-  { path: 'artist', component: ArtistDiscographyComponent },
-  { path: 'album', component: AlbumComponent },
   { path: 'about', component: AboutComponent },
   {
     path: '',

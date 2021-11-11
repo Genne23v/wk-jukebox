@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -33,7 +34,12 @@ import { ArtistDiscographyComponent } from './artist-discography/artist-discogra
     AlbumComponent,
     ArtistDiscographyComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatSidenavModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatSidenavModule,
     MatProgressBarModule,
     MatMenuModule,
     MatToolbarModule,
@@ -41,7 +47,13 @@ import { ArtistDiscographyComponent } from './artist-discography/artist-discogra
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule, MatChipsModule, FlexLayoutModule],
+    MatCardModule,
+    MatChipsModule,
+    FlexLayoutModule,
+    HttpClientModule,
+    FormsModule,
+    MatSnackBarModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
