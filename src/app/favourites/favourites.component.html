@@ -1,0 +1,24 @@
+<h1>Favourites</h1>
+<p>
+    The following is a list of your favourites songs from various artists.<br />Click the &nbsp;
+    <mat-icon mat-list-icon>queue</mat-icon>&nbsp; icon to
+    <strong>remove</strong> a song from your list
+</p>
+<br />
+
+<mat-list>
+    <mat-list-item>
+        <div mat-line>
+            <!-- <mat-card *ngFor="let favourite of favourites">
+                <mat-card-content><strong>{{ favourite.name }}</strong> - Track Duration<br /><br />Artist(s):
+                    <span><a [routerLink]="['/artist', favourite.id">Artist 1</a>&nbsp;&nbsp;</span>
+                    <span><a routerLink="artist">Possible Artist 2</a>&nbsp;&nbsp;</span>
+                    <br /> Album: <a [routerLink]="['/album', favourite.album]">{{ favourite.album.name }}</a><br />
+                    <div *ngIf="favourite.preview_url">
+                        <br /><audio controls [src]="favourite.preview_url"></audio>
+                    </div>
+                </mat-card-content>
+            </mat-card> -->
+        </div>
+    </mat-list-item>
+</mat-list>

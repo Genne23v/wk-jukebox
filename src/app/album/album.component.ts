@@ -26,7 +26,9 @@ export class AlbumComponent implements OnInit {
   }
 
   addToFavourites(id: String): void {
+    console.log('track-id',id)
     if (this.musicDataService.addToFavourites(id)) {
+
       this.snackBar.open('Adding to Favourites', 'Done', { duration: 1500 });
     }
   }
