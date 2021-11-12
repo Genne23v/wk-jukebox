@@ -2,7 +2,7 @@
 <p>Full track listing for {{ album.name }}</p>
 <p>
     Click the
-    <mat-icon mat-list-icon>queue_music</mat-icon> to <strong>add</strong> a song to your favourites list
+    <mat-icon mat-list-icon>queue_music</mat-icon> icon to <strong>add</strong> a song to your favourites list
 </p>
 <mat-card>
     <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
@@ -38,7 +38,6 @@
         <div mat-line>
             <mat-card>
                 <mat-card-content>{{ track.track_number }}:{{ track.name }} - {{ transformRunningTime(track.duration_ms) }}
-                    <!-- NOTE 3.34 was determined by using (duration_ms / 60000).toFixed(2) -->
                 </mat-card-content>
             </mat-card>
         </div>

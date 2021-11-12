@@ -8,8 +8,7 @@
  *
  ********************************************************************************/
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +16,13 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   title = 'web422-a5';
   searchString: String = '';
 
   handleSearch(): void {
+    console.log('handleSearch() initiated', this.searchString)
     this.router.navigate(['/search'], {
       queryParams: { q: this.searchString },
     });

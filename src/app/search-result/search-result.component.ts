@@ -1,34 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MusicDataService } from '../music-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.css'],
 })
-export class SearchResultComponent implements OnInit {
+export class SearchResultComponent implements OnInit, OnDestroy {
   results: any;
   searchQuery: String = '';
+  subscription!: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     private musicDataService: MusicDataService
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((query) => {
+    console.log('search component initiated')
+    this.subscription = this.route.queryParams.subscribe((query) => {
       this.searchQuery = query.q;
-      console.log('query', query.q);
-    });
-    this.musicDataService.searchArtists(this.searchQuery).subscribe((data) => {
-      console.log('data', data);
-      this.results = data.artists.items.filter(
-        (each: { images: string | any[] }) => each.images.length > 0
-      );
+
+      this.musicDataService
+        .searchArtists(this.searchQuery)
+        .subscribe((data) => {
+          this.results = data.artists.items.filter(
+            (each: any) => each.images.length > 0
+          );
+        })
     });
   }
 
-  addCommaInNumber(num: number): String{
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      console.log('search unsubscribed');
+    }
+  }
+
+  addCommaInNumber(num: number): String {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 }

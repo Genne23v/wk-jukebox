@@ -16,15 +16,15 @@ const routes: Routes = [
     path: 'newReleases',
     component: NewReleasesComponent,
   },
-  { path: 'search', component: SearchResultComponent},
-  { path: 'favourites', component: FavouritesComponent},
+  { path: 'search', component: SearchResultComponent },
+  { path: 'favourites', component: FavouritesComponent },
   { path: 'about', component: AboutComponent },
   {
     path: '',
     redirectTo: 'newReleases',
     pathMatch: 'full',
   },
-  {path: '**', component: NotFoundComponent}
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

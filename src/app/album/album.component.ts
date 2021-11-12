@@ -2,14 +2,16 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MusicDataService } from '../music-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-album',
   templateUrl: './album.component.html',
   styleUrls: ['./album.component.css'],
 })
-export class AlbumComponent implements OnInit {
+export class AlbumComponent implements OnInit, OnDestroy {
   album: any;
+  subscription!: Subscription;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -19,18 +21,25 @@ export class AlbumComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
-    this.musicDataService.getAlbumById(id).subscribe((data) => {
-      this.album = data;
-      console.log('this.album', this.album);
-    });
+    this.subscription = this.musicDataService
+      .getAlbumById(id)
+      .subscribe((data) => {
+        this.album = data;
+        console.log('this.album', this.album);
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   addToFavourites(id: String): void {
-    console.log('track-id',id)
     if (this.musicDataService.addToFavourites(id)) {
-
-      this.snackBar.open('Adding to Favourites', 'Done', { duration: 1500 });
+      this.snackBar.open('Adding to Favourites...', 'Done', { duration: 1500 });
     }
+    console.log('favourite-list', this.musicDataService.getFavourites());
   }
 
   transformRunningTime(ms: number): string {
