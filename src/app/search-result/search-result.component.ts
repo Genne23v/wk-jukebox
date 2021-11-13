@@ -19,7 +19,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    console.log('search component initiated')
     this.subscription = this.route.queryParams.subscribe((query) => {
       this.searchQuery = query.q;
 
@@ -36,7 +35,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();
-      console.log('search unsubscribed');
     }
   }
 

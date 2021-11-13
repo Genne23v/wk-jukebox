@@ -1,4 +1,4 @@
-<h1>{{ album.name }}s</h1>
+<h1>{{ album.name }}</h1>
 <p>Full track listing for {{ album.name }}</p>
 <p>
     Click the
@@ -23,7 +23,7 @@
                 <br />
 
                 <div>{{ album.copyrights[0].text }}</div>
-                <div>{{ album.copyrights[1].text }}</div>
+                <div *ngIf="album.copyrights[1]">{{ album.copyrights[1].text }}</div>
             </div>
         </div>
     </mat-card-content>
@@ -36,13 +36,13 @@
     <mat-list-item *ngFor="let track of album.tracks.items">
         <mat-icon mat-list-icon (click)="addToFavourites(track.id)">queue_music</mat-icon>
         <div mat-line>
-            <mat-card>
+            <mat-card class="track-item">
                 <mat-card-content>{{ track.track_number }}:{{ track.name }} - {{ transformRunningTime(track.duration_ms) }}
                 </mat-card-content>
+                <div class="audio-div" *ngIf="track.preview_url">
+                    <audio controls [src]="track.preview_url"></audio>
+                </div>
             </mat-card>
-        </div>
-        <div *ngIf="track.preview_url">
-            <audio controls [src]="track.preview_url"></audio>
         </div>
     </mat-list-item>
     <!-- -->

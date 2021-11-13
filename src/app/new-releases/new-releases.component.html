@@ -9,7 +9,7 @@
         <div fxFlex [style.margin]="'20px'" *ngFor="let release of releases">
             <mat-card [style.min-width]="'200px'">
                 <mat-card-header>
-                    <mat-card-title>{{ release.name }}</mat-card-title>
+                    <mat-card-title matTooltip="release.name">{{ release.name }}</mat-card-title>
                     <mat-card-subtitle>New Releases</mat-card-subtitle>
                 </mat-card-header>
                 <img [routerLink]="['/album', release.id]" mat-card-image class="album-cover" src="{{ release.images[0].url }}" alt="album art" />

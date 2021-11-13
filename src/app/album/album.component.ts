@@ -25,7 +25,6 @@ export class AlbumComponent implements OnInit, OnDestroy {
       .getAlbumById(id)
       .subscribe((data) => {
         this.album = data;
-        console.log('this.album', this.album);
       });
   }
 
@@ -39,7 +38,6 @@ export class AlbumComponent implements OnInit, OnDestroy {
     if (this.musicDataService.addToFavourites(id)) {
       this.snackBar.open('Adding to Favourites...', 'Done', { duration: 1500 });
     }
-    console.log('favourite-list', this.musicDataService.getFavourites());
   }
 
   transformRunningTime(ms: number): string {

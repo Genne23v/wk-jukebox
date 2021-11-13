@@ -1,3 +1,27 @@
 mat-list mat-icon:hover {
     cursor: pointer;
 }
+
+.track-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+audio {
+    margin: auto 0;
+    height: 36px;
+    vertical-align: middle;
+}
+
+mat-list-item {
+    margin-bottom: 4px;
+}
+
+mat-card>:first-child {
+    margin: auto 0;
+}
+
+mat-card {
+    padding: 12px 16px;
+}
