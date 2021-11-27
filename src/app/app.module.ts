@@ -56,7 +56,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

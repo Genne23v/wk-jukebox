@@ -1,10 +1,10 @@
 /*********************************************************************************
- *  WEB422 – Assignment 05
+ *  WEB422 – Assignment 06
  *  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this
  *  assignment has been copied manually or electronically from any other source (including web sites) or
  *  distributed to other students.
  *
- *  Name: Wonkeun No  Student ID: 145095196   Date: November 13, 2021
+ *  Name: Wonkeun No  Student ID: 145095196   Date: November 30, 2021
  *
  ********************************************************************************/
 import { Component } from '@angular/core';
