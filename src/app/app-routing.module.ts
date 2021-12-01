@@ -1,4 +1,5 @@
 import { noUndefined } from '@angular/compiler/src/util';
+import { GuardAuthService } from './guard-auth.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
@@ -13,16 +14,33 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'artist/:id', component: ArtistDiscographyComponent },
-  { path: 'album/:id', component: AlbumComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'artist/:id',
+    component: ArtistDiscographyComponent,
+    canActivate: [GuardAuthService],
+  },
+  {
+    path: 'album/:id',
+    component: AlbumComponent,
+    canActivate: [GuardAuthService],
+  },
   {
     path: 'newReleases',
     component: NewReleasesComponent,
+    canActivate: [GuardAuthService],
   },
-  { path: 'search', component: SearchResultComponent },
-  { path: 'favourites', component: FavouritesComponent },
-  { path: 'about', component: AboutComponent },
+  {
+    path: 'search',
+    component: SearchResultComponent,
+    canActivate: [GuardAuthService],
+  },
+  {
+    path: 'favourites',
+    component: FavouritesComponent,
+    canActivate: [GuardAuthService],
+  },
+  { path: 'about', component: AboutComponent, canActivate: [GuardAuthService] },
   {
     path: '',
     redirectTo: 'newReleases',

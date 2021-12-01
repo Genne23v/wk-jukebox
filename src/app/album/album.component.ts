@@ -35,9 +35,12 @@ export class AlbumComponent implements OnInit, OnDestroy {
   }
 
   addToFavourites(id: String): void {
-    if (this.musicDataService.addToFavourites(id)) {
+    this.musicDataService.addToFavourites(id).subscribe(() => {
       this.snackBar.open('Adding to Favourites...', 'Done', { duration: 1500 });
-    }
+    }, err => {
+      this.snackBar.open('Unable to add song to Favourites');
+    })
+
   }
 
   transformRunningTime(ms: number): string {

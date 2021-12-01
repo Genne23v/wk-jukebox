@@ -66,8 +66,12 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     JwtHelperService,
-    { provide: [JWT_OPTIONS, HTTP_INTERCEPTORS], useValue: JWT_OPTIONS, useClass: InterceptTokenService, multi: true }
-    ,
+    {
+      provide: JWT_OPTIONS,  //HTTP_INTERCEPTORS
+      useValue: JWT_OPTIONS,
+      useClass: InterceptTokenService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
