@@ -7,8 +7,8 @@
 <br />
 
 <mat-list>
-    <mat-list-item *ngFor="let favourite of favourites; let indexOfelement=index">
-        <mat-icon mat-list-icon (click)="removeFromFavourites(indexOfelement)">queue_music</mat-icon>
+    <mat-list-item *ngFor="let favourite of favourites; ">
+        <mat-icon mat-list-icon (click)="removeFromFavourites(favourite.id)">queue_music</mat-icon>
         <div mat-line>
             <mat-card class="track-item">
                 <mat-card-content><strong>{{ favourite.name }}</strong> - {{ transformRunningTime(favourite.duration_ms) }}<br /><br /> Artist(s):
