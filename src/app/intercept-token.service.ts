@@ -11,11 +11,13 @@ export class InterceptTokenService {
   constructor(private auth: AuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
-    request = request.clone({
-      setHeaders: {
-        // Authorization: `JWT ${this.auth.getToken()}`
-      }
-    })
-    return next.handle(request);
+    if (!request.url.includes('spotify.com')){
+      request = request.clone({
+        setHeaders: {
+          Authorization: `JWT ${this.auth.getToken()}`
+        }
+      })
+      return next.handle(request);
+    }
   }
 }

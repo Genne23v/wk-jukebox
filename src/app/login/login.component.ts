@@ -1,4 +1,3 @@
-import { validateVerticalPosition } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
@@ -13,10 +12,9 @@ export class LoginComponent implements OnInit {
   user = {
     userName: '',
     password: '',
-    _id: ''
+    _id: '',
   };
   warning = '';
-  success = false;
   loading = false;
 
   loginForm = new FormGroup({
@@ -33,19 +31,20 @@ export class LoginComponent implements OnInit {
     this.user.userName = form.value.userName;
     this.user.password = form.value.password;
 
-    if (this.user.userName !== '' && this.user.password !== ''){
+    if (this.user.userName !== '' && this.user.password !== '') {
       this.loading = true;
-      this.auth.login(this.user).subscribe(() => {
-        this.loading = false;
-        // this.success = true;
-        this.router.navigate(['/newReleases'])
-        this.warning = '';
-
-      }), (err => {
-        this.success = false;
-        this.warning = err.error.message;
-        this.loading = false;
-      })
+      this.auth.login(this.user).subscribe(
+        (success) => {
+          this.loading = false;
+          this.warning = '';
+          localStorage.setItem('access_token', success.token);
+          this.router.navigate(['/newReleases']);
+        },
+        (err) => {
+          this.warning = err.error.message;
+          this.loading = false;
+        }
+      );
     }
   }
 }

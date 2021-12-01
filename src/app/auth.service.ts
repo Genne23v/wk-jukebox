@@ -15,7 +15,7 @@ const jwtHelper = new JwtHelperService();
 export class AuthService {
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {}
 
-  private getToken(): string {
+  getToken(): string {
     return localStorage.getItem('token')['access_token'];
   }
 

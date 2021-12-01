@@ -7,8 +7,3 @@ mat-card {
 mat-form-field {
     display: block;
 }
-
-.success {
-    text-align: center;
-    padding-top: 10px;
-}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -65,9 +65,9 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
   ],
   providers: [
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
-    InterceptTokenService,
+    { provide: [JWT_OPTIONS, HTTP_INTERCEPTORS], useValue: JWT_OPTIONS, useClass: InterceptTokenService, multi: true }
+    ,
   ],
   bootstrap: [AppComponent],
 })
