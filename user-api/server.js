@@ -61,7 +61,7 @@ app.post('/api/user/register', async(req, res) => {
         });
     } catch (err) {
         res.status(422).json({
-            message: `unable to create ${userName}`,
+            message: `User name ${userName} already taken`,
             error: err.message,
         });
     }
