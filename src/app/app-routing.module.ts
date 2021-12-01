@@ -8,8 +8,12 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { NewReleasesComponent } from './new-releases/new-releases.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'artist/:id', component: ArtistDiscographyComponent },
   { path: 'album/:id', component: AlbumComponent },
   {

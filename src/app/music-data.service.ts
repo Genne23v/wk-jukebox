@@ -3,13 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SpotifyTokenService } from './spotify-token.service';
 import { mergeMap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MusicDataService {
-  favouriteList: Array<any> = [];
-
   constructor(
     private spotifyToken: SpotifyTokenService,
     private http: HttpClient
@@ -68,31 +67,46 @@ export class MusicDataService {
     );
   }
 
-  addToFavourites(id: String) {
-    if (id || this.favouriteList.length < 50) {
-      this.favouriteList.push(id);
-      return true;
-    }
-    return false;
+  addToFavourites(id: String): Observable<[String]> {
+    // TODO: make a PUT request to environment.userAPIBase/favourites/:id to add id to favourites
+    return this.http
+      .put<[String]>(`${environment.userAPIBase}/favourites/${id}`, id)
+      // .pipe(
+      //   mergeMap((favouritesArray) => {
+      //     if (id || favouritesArray.length < 50) {
+      //       favouritesArray.push(id);
+      //       const trackQueries = favouritesArray.join(',');
+      //     }
+      //   })
+      // );
   }
 
-  removeFromFavourites(idx: number) {
-    this.favouriteList.splice(idx, 1);
-    return this.getFavourites();
+  removeFromFavourites(id: string): Observable<any> {
+    //idx number
+    return this.http
+      .delete<[String]>(`${environment.userAPIBase}/favourites/${id}`)
+      // .pipe(mergeMap((favouritesArray) => {}));
   }
 
   getFavourites(): Observable<any> {
-    if (this.favouriteList.length > 0) {
-      return this.spotifyToken.getBearerToken().pipe(
-        mergeMap((token) => {
-          const trackQueries = this.favouriteList.join(',');
-          return this.http.get<any>(
-            `https://api.spotify.com/v1/tracks?ids=${trackQueries}`, { headers: { Authorization: `Bearer ${token}` } }
-          );
+    return this.http
+      .get<[String]>(`${environment.userAPIBase}/favourites/`)
+      .pipe(
+        mergeMap((favouritesArray) => {
+          if (favouritesArray.length > 0) {
+            return this.spotifyToken.getBearerToken().pipe(
+              mergeMap((token) => {
+                const trackQueries = favouritesArray.join(',');
+                return this.http.get<any>(
+                  `https://api.spotify.com/v1/tracks?ids=${trackQueries}`,
+                  { headers: { Authorization: `Bearer ${token}` } }
+                );
+              })
+            );
+          } else {
+            return new Observable((o) => o.next({ tracks: [] }));
+          }
         })
       );
-    } else {
-      return new Observable((o) => o.next([]));
-    }
   }
 }

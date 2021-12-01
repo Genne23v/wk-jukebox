@@ -21,9 +21,9 @@ export class FavouritesComponent implements OnInit, OnDestroy {
       });
     }
 
-    removeFromFavourites(idx: number): void {
+    removeFromFavourites(id: string): void {
       this.subscription = this.musicDataService
-      .removeFromFavourites(idx)
+      .removeFromFavourites(id)
       .subscribe(data => {
         this.favourites = data.tracks});
   }

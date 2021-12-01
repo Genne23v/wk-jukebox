@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-content>
+        <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+            <h2>Register</h2>
+            <mat-error *ngIf="warning">{{ warning }}</mat-error><br />
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="User Name" name="userName" required autofocus formControlName="userName" />
+                <mat-error *ngIf="registerForm.controls['userName'].errors?.required">User name must be provided</mat-error>
+                <mat-error *ngIf="registerForm.controls['userName'].errors?.pattern">User name must be longer than or equal to 3 alphanumeric characters</mat-error>
+            </mat-form-field><br />
+
+            <mat-form-field class="full-width-input">
+                <input matInput type="password" placeholder="Password" name="password" required formControlName="password" />
+                <mat-error *ngIf="registerForm.controls['password'].errors?.pattern">Min 8 characters or longer with uppercase, lowercase, special characters, and number</mat-error>
+                <mat-error *ngIf="registerForm.controls['password'].errors?.required">Password must be provided</mat-error>
+            </mat-form-field><br />
+
+            <mat-form-field class="full-width-input">
+                <input matInput type="password" placeholder="Password" name="password2" required formControlName="password2" />
+                <mat-error *ngIf="registerForm.controls['password2'].errors?.required">Password must be provided</mat-error>
+                <mat-error *ngIf="registerForm.controls['password2'].errors?.pattern">Min 8 characters or longer with uppercase, lowercase, special characters, and number</mat-error>
+                <!-- <mat-error *ngIf="registerForm.controls['password2'].errors?.">Passwords should match</mat-error> -->
+            </mat-form-field><br />
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+        <mat-icon>account_box</mat-icon>
+        <span *ngIf="!loading">&nbsp;&nbsp;&nbsp;Register</span>
+        <span *ngIf="loading">&nbsp;&nbsp;&nbsp;Processing Request</span>
+      </button>
+        </form>
+    </mat-card-content>
+    <div class="success" *ngIf="success">
+        Registration Successful. Proceed to <br /><br />
+        <a mat-raised-button color="accent" [routerLink]="['/login']">
+            <mat-icon>login</mat-icon>&nbsp;&nbsp;&nbsp;Login
+        </a>
+    </div>
+</mat-card>
