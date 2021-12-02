@@ -16,12 +16,12 @@ export class AuthService {
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {}
 
   getToken(): string {
-    return localStorage.getItem('token')['access_token'];
+    return localStorage.getItem('access_token');
   }
 
   readToken(): User {
     const user = new User();
-    const token = this.getToken()['access_token'];
+    const token = this.getToken();
 
     if (!token) {
       return null;
@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    const token = this.getToken()['access_token'];
+    const token = this.getToken();
 
     if (!token) {
       return false;
@@ -52,7 +52,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token')['access_token'];
+    localStorage.removeItem('access_token');
   }
 
   register(registerUser: RegisterUser): Observable<any> {

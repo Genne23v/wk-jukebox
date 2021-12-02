@@ -4,11 +4,11 @@
  *  assignment has been copied manually or electronically from any other source (including web sites) or
  *  distributed to other students.
  *
- *  Name: Wonkeun No  Student ID: 145095196   Date: November 30, 2021
+ *  Name: Wonkeun No  Student ID: 145095196   Date: December 3, 2021
  *
  ********************************************************************************/
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -23,7 +23,12 @@ export class AppComponent implements OnInit {
   searchString: String = '';
   token;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationStart)
+        this.token = this.authService.readToken();
+    });
+  }
 
   logout() {
     localStorage.clear();

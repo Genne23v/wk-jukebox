@@ -17,10 +17,10 @@
             </mat-form-field><br />
 
             <mat-form-field class="full-width-input">
-                <input matInput type="password" placeholder="Password" name="password2" required formControlName="password2" />
+                <input matInput type="password" placeholder="Confirm Password" name="password2" required formControlName="password2" />
                 <mat-error *ngIf="registerForm.controls['password2'].errors?.required">Password must be provided</mat-error>
                 <mat-error *ngIf="registerForm.controls['password2'].errors?.pattern">Min 8 characters or longer with uppercase, lowercase, special characters, and number</mat-error>
-                <!-- <mat-error *ngIf="registerForm.controls['password2'].errors?.">Passwords should match</mat-error> --></mat-form-field><br />
+            </mat-form-field><br />
 
             <button mat-raised-button color="primary" type="submit" [disabled]="loading">
         <mat-icon>account_box</mat-icon>

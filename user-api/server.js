@@ -61,8 +61,7 @@ app.post('/api/user/register', async(req, res) => {
         });
     } catch (err) {
         res.status(422).json({
-            message: `User name ${userName} already taken`,
-            error: err.message,
+            message: err,
         });
     }
 });
@@ -95,8 +94,7 @@ app.post('/api/user/login', async(req, res) => {
         }
     } catch (err) {
         res.status(422).json({
-            message: `unable to authenticate ${userName}`,
-            error: err,
+            message: err,
         });
     }
 });

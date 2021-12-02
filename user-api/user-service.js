@@ -37,7 +37,6 @@ module.exports.connect = function() {
 
 module.exports.registerUser = function(userData) {
     return new Promise(function(resolve, reject) {
-        console.log(`userData: ${userData.password}`, userData.password2);
         if (userData.password != userData.password2) {
             reject("Passwords do not match");
         } else {
@@ -51,7 +50,7 @@ module.exports.registerUser = function(userData) {
                     newUser.save((err) => {
                         if (err) {
                             if (err.code == 11000) {
-                                reject("User Name already taken");
+                                reject(`User name '${userData.userName}' already taken`);
                             } else {
                                 reject("There was an error creating the user: " + err);
                             }
@@ -73,16 +72,14 @@ module.exports.checkUser = function(userData) {
             .then((user) => {
                 bcrypt.compare(userData.password, user.password).then((res) => {
                     if (res === true) {
-                        console.log(`userData: ${Object.keys(userData)}`);
-                        console.log(`user in checkUser: ${user}`);
                         resolve(user);
                     } else {
-                        reject("Incorrect password for user " + userData.userName);
+                        reject(`Incorrect password for user '${userData.userName}'`);
                     }
                 });
             })
             .catch((err) => {
-                reject("Unable to find user " + userData.userName);
+                reject(`Unable to find user '${userData.userName}'`);
             });
     });
 };
