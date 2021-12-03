@@ -14,7 +14,7 @@ export class FavouritesComponent implements OnInit, OnDestroy {
   constructor(private musicDataService: MusicDataService) {}
 
   ngOnInit(): void {
-    console.log('ngOnInit()')
+    console.log('ngOnInit()');
     this.subscription = this.musicDataService
       .getFavourites()
       .subscribe((data) => {
@@ -23,12 +23,9 @@ export class FavouritesComponent implements OnInit, OnDestroy {
   }
 
   removeFromFavourites(id: string): void {
-    this.subscription.add(
-      this.musicDataService.removeFromFavourites(id).subscribe(() => {
-        // this.ngOnInit();
-      })
-
-    );
+    this.musicDataService.removeFromFavourites(id).subscribe(() => {
+      this.ngOnInit();
+    })
   }
 
   ngOnDestroy(): void {
