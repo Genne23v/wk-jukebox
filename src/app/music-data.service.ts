@@ -68,17 +68,8 @@ export class MusicDataService {
   }
 
   addToFavourites(id: String): Observable<[String]> {
-    console.log(id);
     return this.http
-      .put<[String]>(`${environment.userAPIBase}/favourites/${id}`, id)
-      // .pipe(
-      //   mergeMap((favouritesArray) => {
-      //     if (id || favouritesArray.length < 50) {
-      //       favouritesArray.push(id);
-      //       const trackQueries = favouritesArray.join(',');
-      //     }
-      //   })
-      // );
+      .put<[String]>(`${environment.userAPIBase}/favourites/${id}`, '');
   }
 
   removeFromFavourites(id: string): Observable<any> {

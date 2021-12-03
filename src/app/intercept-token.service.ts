@@ -14,7 +14,7 @@ export class InterceptTokenService implements HttpInterceptor{
     if (!request.url.includes('spotify.com')){
       request = request.clone({
         setHeaders: {
-          Authorization: `JWT ${this.auth.getToken()}`
+          Authorization: `Bearer ${this.auth.getToken()}`
         }
       })
     }
