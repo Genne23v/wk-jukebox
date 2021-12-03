@@ -13,21 +13,20 @@ const jwtHelper = new JwtHelperService();
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {}
+  constructor(private http: HttpClient) {}
 
   getToken(): string {
     return localStorage.getItem('access_token');
   }
 
   readToken(): User {
-    const user = new User();
     const token = this.getToken();
 
     if (!token) {
       return null;
     }
 
-    const payload = this.jwtHelper.decodeToken(token);
+    const payload = jwtHelper.decodeToken(token);
     return {
       _id: payload.sub,
       userName: payload.name,
@@ -41,9 +40,8 @@ export class AuthService {
     if (!token) {
       return false;
     }
-    const isExpired = this.jwtHelper.isTokenExpired(token);
 
-    return !isExpired;
+    return !jwtHelper.isTokenExpired(token);
   }
 
   login(user: User): Observable<any> {

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MusicDataService } from '../music-data.service';
-import { Subscription, SubscriptionLike } from 'rxjs'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-new-releases',
@@ -20,9 +20,8 @@ export class NewReleasesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if(this.subscription){
+    if (this.subscription) {
       this.subscription.unsubscribe();
     }
   }
-
 }

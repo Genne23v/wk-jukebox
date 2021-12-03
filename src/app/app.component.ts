@@ -8,7 +8,7 @@
  *
  ********************************************************************************/
 import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationStart, Event, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -21,10 +21,10 @@ export class AppComponent implements OnInit {
 
   title = 'web422-a6';
   searchString: String = '';
-  token;
+  token: any;
 
   ngOnInit() {
-    this.router.events.subscribe((e) => {
+    this.router.events.subscribe((e: Event) => {
       if (e instanceof NavigationStart)
         this.token = this.authService.readToken();
     });
@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
   }
 
   handleSearch(): void {
-    console.log('handleSearch() initiated', this.searchString);
     this.router.navigate(['/search'], {
       queryParams: { q: this.searchString },
     });

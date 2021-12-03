@@ -13,8 +13,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
   {
     path: 'artist/:id',
     component: ArtistDiscographyComponent,
@@ -25,6 +23,8 @@ const routes: Routes = [
     component: AlbumComponent,
     canActivate: [GuardAuthService],
   },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'newReleases',
     component: NewReleasesComponent,

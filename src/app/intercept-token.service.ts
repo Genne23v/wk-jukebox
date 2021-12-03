@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class InterceptTokenService {
+export class InterceptTokenService implements HttpInterceptor{
 
   constructor(private auth: AuthService) { }
 
@@ -17,7 +17,7 @@ export class InterceptTokenService {
           Authorization: `JWT ${this.auth.getToken()}`
         }
       })
-      return next.handle(request);
     }
+    return next.handle(request);
   }
 }
