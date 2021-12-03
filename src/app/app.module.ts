@@ -17,7 +17,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { JwtHelperService, JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 import { InterceptTokenService } from './intercept-token.service';
 
 import { AppComponent } from './app.component';
@@ -66,9 +65,11 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
   ],
   providers: [
-    // { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    // JwtHelperService,
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptTokenService, multi: true}
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptTokenService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
