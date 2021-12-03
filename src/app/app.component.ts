@@ -4,25 +4,38 @@
  *  assignment has been copied manually or electronically from any other source (including web sites) or
  *  distributed to other students.
  *
- *  Name: Wonkeun No  Student ID: 145095196   Date: November 30, 2021
+ *  Name: Wonkeun No  Student ID: 145095196   Date: December 3, 2021
  *
  ********************************************************************************/
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Event, Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  constructor(private router: Router) {}
+export class AppComponent implements OnInit {
+  constructor(private router: Router, private authService: AuthService) {}
 
-  title = 'web422-a5';
+  title = 'web422-a6';
   searchString: String = '';
+  token: any;
+
+  ngOnInit() {
+    this.router.events.subscribe((e: Event) => {
+      if (e instanceof NavigationStart)
+        this.token = this.authService.readToken();
+    });
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
   handleSearch(): void {
-    console.log('handleSearch() initiated', this.searchString)
     this.router.navigate(['/search'], {
       queryParams: { q: this.searchString },
     });

@@ -68,24 +68,18 @@ export class MusicDataService {
   }
 
   addToFavourites(id: String): Observable<[String]> {
-    // TODO: make a PUT request to environment.userAPIBase/favourites/:id to add id to favourites
-    return this.http
-      .put<[String]>(`${environment.userAPIBase}/favourites/${id}`, id)
-      // .pipe(
-      //   mergeMap((favouritesArray) => {
-      //     if (id || favouritesArray.length < 50) {
-      //       favouritesArray.push(id);
-      //       const trackQueries = favouritesArray.join(',');
-      //     }
-      //   })
-      // );
+    return this.http.put<[String]>(
+      `${environment.userAPIBase}/favourites/${id}`,
+      ''
+    );
   }
 
   removeFromFavourites(id: string): Observable<any> {
-    //idx number
     return this.http
       .delete<[String]>(`${environment.userAPIBase}/favourites/${id}`)
-      // .pipe(mergeMap((favouritesArray) => {}));
+      .pipe(mergeMap((favouritesArray) => {
+        return favouritesArray;
+      }));
   }
 
   getFavourites(): Observable<any> {

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -18,8 +17,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { JwtHelperService, JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 import { InterceptTokenService } from './intercept-token.service';
+
+import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NewReleasesComponent } from './new-releases/new-releases.component';
@@ -65,9 +66,9 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
   ],
   providers: [
-    JwtHelperService,
-    { provide: [JWT_OPTIONS, HTTP_INTERCEPTORS], useValue: JWT_OPTIONS, useClass: InterceptTokenService, multi: true }
-    ,
+    // { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    // JwtHelperService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptTokenService, multi: true}
   ],
   bootstrap: [AppComponent],
 })

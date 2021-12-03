@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class InterceptTokenService {
+export class InterceptTokenService implements HttpInterceptor{
 
   constructor(private auth: AuthService) { }
 
@@ -14,10 +14,10 @@ export class InterceptTokenService {
     if (!request.url.includes('spotify.com')){
       request = request.clone({
         setHeaders: {
-          Authorization: `JWT ${this.auth.getToken()}`
+          Authorization: `Bearer ${this.auth.getToken()}`
         }
       })
-      return next.handle(request);
     }
+    return next.handle(request);
   }
 }
