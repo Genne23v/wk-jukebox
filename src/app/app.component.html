@@ -2,11 +2,12 @@
     <!-- Top navbar -->
     <mat-toolbar class="navbar" color="primary">
         <button *ngIf="token" mat-icon-button (click)="snav.toggle()">
-      <mat-icon>menu</mat-icon>
+      <mat-icon style="font-size: 2em;">menu</mat-icon>
     </button>
 
-        <a class="navbar-brand" matTooltip="Home">
-            <h1>Seneca Music</h1>
+        <a class="navbar-brand" matTooltip="Home" style="display:flex; margin-left: 8px;">
+            <img src="../../assets/wk-music.png" alt="wk logo" height="36" />
+            <h1 style="margin: auto; font-size: 1.1em;">JUKEBOX</h1>
         </a>
 
         <span class="navbar-spacer"></span>
