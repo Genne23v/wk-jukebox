@@ -6,8 +6,10 @@
  *
  *  Name: Wonkeun No  Student ID: 145095196   Date: December 3, 2021
  *
- * Angular App (Deployed) Link:
+ * Angular App (Deployed) Link: https://wk-jukebox.vercel.app
+ *
  * User API (Heroku) Link: https://wk-music.herokuapp.com/
+ *
  ********************************************************************************/
 import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Event, Router } from '@angular/router';
