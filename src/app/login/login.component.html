@@ -11,7 +11,7 @@
             </mat-form-field><br />
 
             <mat-form-field class="full-width-input">
-                <input matInput type="password" placeholder="Password" name="password" password="password" required autofocus formControlName="password" />
+                <input matInput type="password" placeholder="Password" name="password" password="password" required formControlName="password" />
                 <mat-error *ngIf="loginForm.controls['password'].errors?.required">Please provide your password</mat-error>
             </mat-form-field><br />
 

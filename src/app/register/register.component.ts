@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
     this.registerUser.userName = form.value.userName;
     this.registerUser.password = form.value.password;
     this.registerUser.password2 = form.value.password2;
-    console.log(form.value, form.dirty, form.valid); //TO BE REMOVED
+
     if (
       form.dirty &&
       form.valid &&
@@ -54,7 +54,6 @@ export class RegisterComponent implements OnInit {
       this.loading = true;
       this.auth.register(this.registerUser).subscribe(
         () => {
-          console.log('register success');
           this.success = true;
           this.warning = '';
           this.loading = false;
@@ -64,7 +63,6 @@ export class RegisterComponent implements OnInit {
           form.controls['password2'].setErrors(null);
         },
         (err) => {
-          console.log('register failed', err.error);
           this.success = false;
           this.warning = err.error.error;
           this.loading = false;
