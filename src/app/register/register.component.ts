@@ -63,8 +63,9 @@ export class RegisterComponent implements OnInit {
           form.controls['password2'].setErrors(null);
         },
         (err) => {
+          console.log(err.error)
           this.success = false;
-          this.warning = err.error.error;
+          this.warning = err.error.message;
           this.loading = false;
         }
       );
