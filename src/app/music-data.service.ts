@@ -75,11 +75,9 @@ export class MusicDataService {
   }
 
   removeFromFavourites(id: string): Observable<any> {
-    return this.http
-      .delete<[String]>(`${environment.userAPIBase}/favourites/${id}`)
-      .pipe(mergeMap((favouritesArray) => {
-        return favouritesArray;
-      }));
+    return this.http.delete<[String]>(
+      `${environment.userAPIBase}/favourites/${id}`
+    );
   }
 
   getFavourites(): Observable<any> {
