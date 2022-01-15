@@ -2,24 +2,6 @@
     vertical-align: middle;
 }
 
-button {
-    height: 20px;
-    padding: .1em .4em;
-    font-size: .75em;
-    line-height: 1;
-    margin-left: .5em;
-}
-
-#about {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 1em;
-}
-
-#intro {
-    padding: 1em;
-}
-
 img {
     width: auto;
     height: 170px;
@@ -37,7 +19,6 @@ mat-divider {
 mat-chip {
     margin: 0 0.3em;
     padding: 0.1em 1em;
-    align-items: center;
 }
 
 mat-card-subtitle {
@@ -50,9 +31,9 @@ mat-list-item {
 
 .card-divider {
     position: relative;
-    top: 36px;
+    top: 38px;
 }
 
 .project-desc {
-    margin-top: 1.5em;
+    margin-top: 1.7em;
 }
