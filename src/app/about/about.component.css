@@ -40,12 +40,19 @@ mat-chip {
     align-items: center;
 }
 
-h2 {
-    font-size: 1.2em;
-    margin-bottom: 0;
-    margin-right: 1em;
+mat-card-subtitle {
+    font-size: 1.4em;
 }
 
 mat-list-item {
     margin-bottom: 0.5em;
+}
+
+.card-divider {
+    position: relative;
+    top: 36px;
+}
+
+.project-desc {
+    margin-top: 1.5em;
 }
