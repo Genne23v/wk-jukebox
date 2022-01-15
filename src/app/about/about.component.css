@@ -16,11 +16,36 @@ button {
     margin-bottom: 1em;
 }
 
-
-/* img {
-    display: inline-block;
-} */
-
 #intro {
     padding: 1em;
+}
+
+img {
+    width: auto;
+    height: 170px;
+}
+
+mat-card {
+    width: 95%;
+    margin-bottom: 1em;
+}
+
+mat-divider {
+    margin: 0.5em 0 1em !important;
+}
+
+mat-chip {
+    margin: 0 0.3em;
+    padding: 0.1em 1em;
+    align-items: center;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    margin-right: 1em;
+}
+
+mat-list-item {
+    margin-bottom: 0.5em;
 }

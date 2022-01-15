@@ -1,114 +1,148 @@
-<div style="width: 70%;">
-    <div id="about">
-        <img src="../../assets/WK.PNG" alt="my avatar" width="130" />
-        <div id="intro" style="margin-left: 24px; padding-top: 24px">
-            <h2>Hello, I'm Wonkeun!</h2>
-            <hr />
-            <p>
-                I love JavaScript stack web development, Object-Oriented Programming and Linux embedded programming. <br />Programming has become my part of every day life. <br />I'm not sure where my career will reside in the future yet. <br />There
-                will be a lot more to come for my career as a programmer. Stay tuned!
-            </p>
+<mat-card>
+    <mat-card-content>
+        <div fxFlex='20'>
+            <img mat-card-lg-image src="../../assets/WK.PNG" alt="my avatar" />
         </div>
-    </div>
-    <hr style="margin: 2em 0" />
-    <div>
-        <h2><span class="material-icons"> view_list </span> Latest Projects</h2>
-        <h4>&#8226; Airbnb Clone</h4>
-        <p>
-            Airbnb clone full-stack website using Node.js, MongoDB, Heroku. Used handlebars to template front-end and a combination of pure CSS and Bootstrap. User input validation, user authentication, admin/user authorization, data object CRUD operations are implemented.
-        </p>
-        <br>
-        <h4>&#8226; Travel Post</h4>
-        <p>
-            Travel front-end page inspired by world travellers. Pure HTML & CSS webpage using SmoothScroll and OwlCarousel libraries.
-        </p>
-        <br>
-        <h4>&#8226; NY Restaurant App</h4>
-        <p>
-            MERN full-stack application to interactively display New York restaurants on Leaflet map with grade information.
-        </p>
-    </div>
-    <hr style="margin: 2em 0" />
-    <div>
-        <h2>
-            <span class="material-icons"> computer </span> Tech Stack That I Use &amp; Interests
-        </h2>
-        <ul>
-            <li>
-                <h3>
-                    Web Development
-                    <button mat-flat-button style="background-color: orangered">
-            HTML
-          </button>
-                    <button mat-flat-button style="background-color: dodgerblue">
-            CSS
-          </button>
-                    <button mat-flat-button style="background-color: gold; color: black">
-            JavaScript
-          </button>
-                    <button mat-flat-button style="background-color: forestgreen">
-            Node.js
-          </button>
-                    <button mat-flat-button style="background-color: steelblue">
-            React.js
-          </button>
-                    <button mat-flat-button style="background-color: red">
-            Angular.js
-          </button>
-                    <button mat-flat-button style="background-color: slateblue">
-            Bootstrap
-          </button>
-                    <button mat-flat-button style="background-color: crimson">SASS</button>
-                    <button mat-flat-button style="background-color: dodgerblue">
-            Visual Studio Code
-          </button>
-                </h3>
-            </li>
-            <li>
-                <h3>
-                    Object Oriented Programming
-                    <button mat-flat-button style="background-color: blue">C++</button>
-                    <button mat-flat-button style="background-color: dodgerblue">
-            Java
-          </button>
-                    <button mat-flat-button style="background-color: red">UML</button>
-                    <button mat-flat-button style="background-color: slateblue">
-            Visual Studio
-          </button>
-                    <button mat-flat-button style="background-color: darkblue">
-            Eclipse
-          </button>
-                    <button mat-flat-button style="background-color: crimson">
-            Visual Paradigm
-          </button>
-                </h3>
-            </li>
-            <li>
-                <h3>
-                    Linux/Unix and Embedded Programming
-                    <button mat-flat-button style="background-color: blue">C</button>
-                    <button mat-flat-button style="background-color: red">Ubuntu</button>
-                    <button mat-flat-button style="background-color: darkslategray">
-            Linux Kernel Debugging
-          </button>
-                    <button mat-flat-button style="background-color: crimson">
-            Raspberry Pi
-          </button>
-                </h3>
-            </li>
-            <li>
-                <h3>
-                    Version Control & Deployment
-                    <button mat-flat-button style="background-color: orangered">Git</button>
-                    <button mat-flat-button style="background-color: black">GitHub</button>
-                    <button mat-flat-button style="background-color: darkblue">
-            Heroku
-          </button>
-                    <button mat-flat-button style="background-color: crimson">
-            Vercel
-          </button>
-                </h3>
-            </li>
-        </ul>
-    </div>
-</div>
+        <div fxFlex>
+            <mat-card>
+                <mat-card-title-group>
+                    <mat-card-title>Hi, there <span class='material-icons'>waving_hand</span> I'm Wonkeun!</mat-card-title>
+                </mat-card-title-group>
+                <mat-divider inset></mat-divider>
+                <mat-card-content>
+                    I love JavaScript stack web development, Object-Oriented Programming and Linux embedded programming. <br />Programming has become my part of every day life. <br />I'm not sure where my career will reside in the future yet. <br />There
+                    will be a lot more to come for my career as a programmer. Stay tuned!
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-title><span class="material-icons"> view_list </span> Latest Projects
+    </mat-card-title>
+    <mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-list role="list">
+            <mat-list-item role="listitem">
+                <mat-card>
+                    <mat-card-title> &#8226; Airbnb Clone </mat-card-title>
+                    <mat-divider inset></mat-divider>
+                    <mat-card-content>
+                        Airbnb clone full-stack website using Node.js, MongoDB, Heroku. Used handlebars to template front-end and a combination of pure CSS and Bootstrap. User input validation, user authentication, admin/user authorization, data object CRUD operations are implemented.
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+
+            <mat-list-item role="listitem">
+                <mat-card>
+                    <mat-card-title> &#8226; Travel Post </mat-card-title>
+                    <mat-divider inset></mat-divider>
+                    <mat-card-content>
+                        Travel front-end page inspired by world travellers. Pure HTML & CSS webpage using SmoothScroll and OwlCarousel libraries.
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+
+            <mat-list-item role=listitem>
+                <mat-card>
+                    <mat-card-title> &#8226; NY Restaurant App </mat-card-title>
+                    <mat-divider inset></mat-divider>
+                    <mat-card-content>
+                        MERN full-stack application to interactively display New York restaurants on Leaflet map with grade information.
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>
+        <span class="material-icons"> computer </span> Tech Stack That I Use &amp; Interests
+    </mat-card-title>
+    <mat-divider inset></mat-divider>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item>
+                <mat-card>
+                    <mat-card-title>
+                        Web Development
+                    </mat-card-title>
+                    <mat-divider inset></mat-divider>
+                    <mat-card-content>
+                        <mat-chip-list>
+                            <mat-chip style="background-color: #d9361d">HTML</mat-chip>
+                            <mat-chip style="background-color: #1c30dd"> CSS </mat-chip>
+                            <mat-chip style="background-color: #ddc83b; color: black">
+                                JavaScript
+                            </mat-chip>
+                            <mat-chip style="background-color: #357a2f"> Node.js </mat-chip>
+                            <mat-chip style="background-color: #26c2ee; color:black"> React.js </mat-chip>
+                            <mat-chip style="background-color: #b30023"> Angular.js </mat-chip>
+                            <mat-chip style="background-color: #6100f3"> Bootstrap </mat-chip>
+                            <mat-chip style="background-color: #c04d88">SASS</mat-chip>
+                            <mat-chip style="background-color: #0f4aa1">
+                                Visual Studio Code
+                            </mat-chip>
+                        </mat-chip-list>
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+
+            <mat-list-item>
+                <mat-card>
+                    <mat-card-title>
+                        Object Oriented Programming
+                    </mat-card-title>
+                    <mat-card-content>
+                        <mat-chip-list>
+                            <mat-chip style="background-color: #0a3e6f">C++</mat-chip>
+                            <mat-chip style="background-color: #326484"> Java </mat-chip>
+                            <mat-chip style="background-color: #bf1e25">UML</mat-chip>
+                            <mat-chip style="background-color: #510d81">
+                                Visual Studio
+                            </mat-chip>
+                            <mat-chip style="background-color: #2c1f5f"> Eclipse </mat-chip>
+                            <mat-chip style="background-color: #bf1e25"> Visual Paradigm </mat-chip>
+                        </mat-chip-list>
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+
+            <mat-list-item>
+                <mat-card>
+                    <mat-card-title>
+                        Linux/Unix and Embedded Programming
+                    </mat-card-title>
+                    <mat-card-content>
+                        <mat-chip-list>
+                            <mat-chip style="background-color: blue">C</mat-chip>
+                            <mat-chip style="background-color: #c52f11">Ubuntu</mat-chip>
+                            <mat-chip style="background-color: rgb(58, 58, 58)">
+                                Linux Kernel Debugging
+                            </mat-chip>
+                            <mat-chip style="background-color: #bf0b43"> Raspberry Pi </mat-chip>
+                        </mat-chip-list>
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+
+            <mat-list-item>
+                <mat-card>
+                    <mat-card-title>
+                        Version Control and Deployment
+                    </mat-card-title>
+                    <mat-card-content>
+                        <mat-chip-list>
+                            <mat-chip style="background-color: #db3525">Git</mat-chip>
+                            <mat-chip style="background-color: black">GitHub</mat-chip>
+                            <mat-chip style="background-color: #320086"> Heroku </mat-chip>
+                            <mat-chip style="background-color: black"> Vercel </mat-chip>
+                        </mat-chip-list>
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
