@@ -10,7 +10,7 @@ mat-list mat-icon:hover {
 
 audio {
     margin: auto 0;
-    height: 36px;
+    height: 28px;
     vertical-align: middle;
 }
 
@@ -24,4 +24,28 @@ mat-card>:first-child {
 
 mat-card {
     padding: 12px 16px;
+}
+
+mat-card-actions {
+    margin: 0;
+    padding: 0;
+}
+
+.mat-card>.mat-card-actions:last-child {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 699px) {
+    .track-item {
+        flex-direction: column;
+    }
+    mat-card-actions {
+        margin-top: 0.4em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    audio {
+        width: 100%;
+    }
 }

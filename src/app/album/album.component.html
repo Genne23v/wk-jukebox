@@ -39,9 +39,9 @@
             <mat-card class="track-item">
                 <mat-card-content>{{ track.track_number }}:{{ track.name }} - {{ transformRunningTime(track.duration_ms) }}
                 </mat-card-content>
-                <div class="audio-div" *ngIf="track.preview_url">
+                <mat-card-actions *ngIf='track.preview_url'>
                     <audio controls [src]="track.preview_url"></audio>
-                </div>
+                </mat-card-actions>
             </mat-card>
         </div>
     </mat-list-item>

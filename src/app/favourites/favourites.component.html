@@ -11,13 +11,13 @@
         <mat-icon mat-list-icon (click)="removeFromFavourites(favourite.id)">queue_music</mat-icon>
         <div mat-line>
             <mat-card class="track-item">
-                <mat-card-content><strong>{{ favourite.name }}</strong> - {{ transformRunningTime(favourite.duration_ms) }}<br /><br /> Artist(s):
+                <mat-card-content><strong>{{ favourite.name }}</strong> - {{ transformRunningTime(favourite.duration_ms) }}<br /> Artist(s):
                     <span *ngFor="let artist of favourite.artists"><a [routerLink]="['/artist', artist.id]">{{ artist.name }}</a>&nbsp;&nbsp;</span>
-                    <br /> Album: <a [routerLink]="['/album', favourite.album.id]">{{ favourite.album.name }}</a><br />
+                    <br /> Album: <a [routerLink]="['/album', favourite.album.id]">{{ favourite.album.name }}</a>
                 </mat-card-content>
-                <div *ngIf="favourite.preview_url">
+                <mat-card-actions *ngIf="favourite.preview_url">
                     <br /><audio controls [src]="favourite.preview_url"></audio>
-                </div>
+                </mat-card-actions>
             </mat-card>
         </div>
     </mat-list-item>
