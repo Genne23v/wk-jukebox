@@ -5,6 +5,11 @@
 img {
     width: auto;
     height: 170px;
+    display: block;
+}
+
+#my-intro {
+    flex: 5 2;
 }
 
 mat-card {
