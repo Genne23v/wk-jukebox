@@ -22,6 +22,12 @@ mat-card-content {
     margin: 0;
 }
 
+a:visited,
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
 @media only screen and (max-width: 799px) {
     .track-item {
         flex-direction: column;
@@ -34,5 +40,3 @@ mat-card-content {
         margin-top: 0.4em;
     }
 }
-
-@media only screen and (max-width: 400px) {}
