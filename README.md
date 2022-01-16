@@ -1,27 +1,33 @@
 # MEAN full-stack Application Using Spotify API 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
+![new releases](./demo/new-releases.jpg)
+<br>This project is MEAN full stack music application using Spotify API. 
+[WK JukeBox Link](https://wk-jukebox.vercel.app)
+<br>This application provides below features. <br><br>
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![artist search](./demo/search-result.jpg)
+> User Registration and Authentication
+- User name and password verification and store on MongoDB 
+- Protecting routes to unauthorized users
+- Manager user's favourite tracks
 
-## Code scaffolding
+![album page](./demo/album.jpg)
+> Browsing Content
+- New releases on main screen provided by Spotify API
+- Artist search on side bar
+- Artist and album links are connected to relevant artist/album pages
+- Music preview is provided based on preview availability
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![favourite tracks](./demo/favourites.jpg)
+> About 
+- Developer intro page
+<br>
 
-## Build
+## This application is fully responsive on mobile screens! 
+![album on mobile](./demo/mobile-album.jpg)
+![artist on mobile](./demo/mobile-artist.jpg)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Backend Repository Link
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[WK JukeBox backend repo](https://github.com/Genne23v/wk-jukebox-backend)
